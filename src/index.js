@@ -26,36 +26,40 @@ export class OlderCoaster extends React.Component {
 
 export class InFrontOfYou extends React.Component {
   render () {
-    return <div>
+    return (<div>
   <p>You shouldn't look too far.</p>
   <p>Sometimes, the solution is right in front of you.</p>
-</div>
+</div>)
   }
 }
 
 export class ButcherShop extends React.Component {
   // your code here
   render () {
-    return <div class="butcher-shop">
+    const products = BUTCHER_PRODUCTS.map( (p, idx) => (<li key={idx}>{p}</li>))
+    return (<div className="butcher-shop">
   <p>Hello! We have the following products for sale today:</p>
   <ul>
-    <li>Tenderloin</li>
-    <li>Short ribs</li>
-    <li>Beef shin</li>
-    <li>Ribeye</li>
+    { products }
   </ul>
-</div>}
+</div>)
+}
+}
+
+export class App extends React.Component {
+  render () {
+    return (
+      <div id="app">
+        <OlderCoaster />
+        <InFrontOfYou />
+        <ButcherShop />
+      </div>
+    )
+  }
 
 }
 
-
 ReactDOM.render(
-<OlderCoaster />,
-  document.getElementById('root')
-)
-
-ReactDOM.render(
-  <InFrontOfYou />
-,
+<App />,
   document.getElementById('root')
 )
